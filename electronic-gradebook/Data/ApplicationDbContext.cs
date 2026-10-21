@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using electronic_gradebook.Models;
 
 namespace electronic_gradebook.Data
 {
@@ -9,5 +10,6 @@ namespace electronic_gradebook.Data
             : base(options)
         {
         }
+        public DbSet<Grade> Grades { get; set; } = null!;
     }
 }
