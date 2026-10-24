@@ -1,9 +1,11 @@
 ﻿using electronic_gradebook.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace electronic_gradebook.Controllers
 {
+    [Authorize]
     public class GradesController : Controller
     {
         private readonly ApplicationDbContext _context;
