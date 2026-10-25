@@ -1,0 +1,58 @@
+﻿@model electronic_gradebook.Models.Grade
+
+@{
+    ViewData["Title"] = "Добавяне на оценка";
+}
+
+<div class="container mt-4">
+    <h1>Добавяне на оценка</h1>
+
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="StudentId" class="form-label">Ученик</label>
+            <select asp-for="StudentId"
+                    asp-items="ViewBag.StudentId"
+                    class="form-select">
+                <option value="">-- Избери ученик --</option>
+            </select>
+            <span asp-validation-for="StudentId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Subject" class="form-label">Учебен предмет</label>
+            <input asp-for="Subject" class="form-control" />
+            <span asp-validation-for="Subject" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Score" class="form-label">Оценка</label>
+            <input asp-for="Score"
+                   type="number"
+                   min="2"
+                   max="6"
+                   step="0,5"
+                   class="form-control" />
+            <span asp-validation-for="Score" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DateGiven" class="form-label">Дата</label>
+            <input asp-for="DateGiven" type="date" class="form-control" />
+            <span asp-validation-for="DateGiven" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Запази оценката</button>
+        <a asp-action="Index" class="btn btn-secondary">Отказ</a>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
